@@ -11,5 +11,5 @@ import java.util.List;
 @Configuration @EnableWebSecurity
 public class SecurityConfig {
  @Bean SecurityFilterChain filterChain(HttpSecurity http) throws Exception { return http.csrf(c->c.disable()).cors(c->{}).authorizeHttpRequests(a->a.requestMatchers("/api/**", "/actuator/health").permitAll().anyRequest().permitAll()).build(); }
- @Bean CorsConfigurationSource corsConfigurationSource() { CorsConfiguration c=new CorsConfiguration(); c.setAllowedOrigins(List.of("http://localhost:5173","http://127.0.0.1:5173")); c.setAllowedMethods(List.of("GET","PUT","POST","DELETE","OPTIONS")); c.setAllowedHeaders(List.of("*")); UrlBasedCorsConfigurationSource s=new UrlBasedCorsConfigurationSource(); s.registerCorsConfiguration("/**",c); return s; }
+ @Bean CorsConfigurationSource corsConfigurationSource() { CorsConfiguration c=new CorsConfiguration(); c.setAllowedOrigins(List.of("http://localhost:5173","http://127.0.0.1:5173","https://inventory-management-live-wc58.onrender.com")); c.setAllowedMethods(List.of("GET","PUT","POST","DELETE","OPTIONS")); c.setAllowedHeaders(List.of("*")); UrlBasedCorsConfigurationSource s=new UrlBasedCorsConfigurationSource(); s.registerCorsConfiguration("/**",c); return s; }
 }
