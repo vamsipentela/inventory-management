@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Inventory Backend (Local H2 fallback)",
+      "type": "shell",
+      "command": ".\\apache-maven-3.9.6\\bin\\mvn.cmd spring-boot:run",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "label": "Inventory Frontend",
+      "type": "shell",
+      "command": "npm run dev -- --host 0.0.0.0",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "label": "Run Inventory Management",
+      "dependsOn": ["Inventory Backend (Local H2 fallback)", "Inventory Frontend"],
+      "dependsOrder": "parallel",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}
