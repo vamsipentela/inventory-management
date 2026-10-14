@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/inventory-management/',
+  // GitHub Pages needs the repository path; Vercel serves from the domain root.
+  base: process.env.GITHUB_ACTIONS ? '/inventory-management/' : '/',
   build: {
     sourcemap: false,
     target: 'es2020'
