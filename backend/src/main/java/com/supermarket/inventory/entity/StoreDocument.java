@@ -11,7 +11,8 @@ import lombok.Setter;
 public class StoreDocument {
     @Id
     private String documentKey;
-    @Lob @Column(nullable = false, columnDefinition = "CLOB")
+    // TEXT works on PostgreSQL and H2; CLOB is not a valid PostgreSQL type.
+    @Lob @Column(nullable = false, columnDefinition = "TEXT")
     private String payload;
     public StoreDocument(String documentKey, String payload) { this.documentKey = documentKey; this.payload = payload; }
 }
