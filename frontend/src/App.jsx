@@ -4,7 +4,7 @@ import { LayoutDashboard, Package, Tags, Truck, Warehouse, ShoppingCart, BarChar
 import './index.css'
 
 const money = value => `₹${Number(value).toLocaleString('en-IN', { minimumFractionDigits: 2 })}`
-const API = import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
+const API = import.meta.env.VITE_API_URL || 'https://inventory-management-api-gr83.onrender.com/api'
 const emptyData = { products: [], categories: [], suppliers: [], sales: [] }
 function loggedIn() { return sessionStorage.getItem('stockwise_session') === 'true' }
 function role() { return sessionStorage.getItem('stockwise_role') || '' }
